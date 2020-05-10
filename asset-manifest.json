@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/weather-now-react/static/css/main.98c9c6b7.chunk.css",
-    "main.js": "/weather-now-react/static/js/main.510da4d7.chunk.js",
-    "main.js.map": "/weather-now-react/static/js/main.510da4d7.chunk.js.map",
-    "runtime-main.js": "/weather-now-react/static/js/runtime-main.66fc2359.js",
-    "runtime-main.js.map": "/weather-now-react/static/js/runtime-main.66fc2359.js.map",
-    "static/js/2.bd2fa1a7.chunk.js": "/weather-now-react/static/js/2.bd2fa1a7.chunk.js",
-    "static/js/2.bd2fa1a7.chunk.js.map": "/weather-now-react/static/js/2.bd2fa1a7.chunk.js.map",
-    "index.html": "/weather-now-react/index.html",
-    "precache-manifest.67d7650926af9d8961f4a3676be19978.js": "/weather-now-react/precache-manifest.67d7650926af9d8961f4a3676be19978.js",
-    "service-worker.js": "/weather-now-react/service-worker.js",
-    "static/css/main.98c9c6b7.chunk.css.map": "/weather-now-react/static/css/main.98c9c6b7.chunk.css.map",
-    "static/js/2.bd2fa1a7.chunk.js.LICENSE.txt": "/weather-now-react/static/js/2.bd2fa1a7.chunk.js.LICENSE.txt",
-    "static/media/weather-logo.19461b5b.svg": "/weather-now-react/static/media/weather-logo.19461b5b.svg"
+    "main.css": "./static/css/main.98c9c6b7.chunk.css",
+    "main.js": "./static/js/main.e975273a.chunk.js",
+    "main.js.map": "./static/js/main.e975273a.chunk.js.map",
+    "runtime-main.js": "./static/js/runtime-main.caf2e88a.js",
+    "runtime-main.js.map": "./static/js/runtime-main.caf2e88a.js.map",
+    "static/js/2.bd2fa1a7.chunk.js": "./static/js/2.bd2fa1a7.chunk.js",
+    "static/js/2.bd2fa1a7.chunk.js.map": "./static/js/2.bd2fa1a7.chunk.js.map",
+    "index.html": "./index.html",
+    "precache-manifest.65fcbd63e3485851bf167ec31c58bb65.js": "./precache-manifest.65fcbd63e3485851bf167ec31c58bb65.js",
+    "service-worker.js": "./service-worker.js",
+    "static/css/main.98c9c6b7.chunk.css.map": "./static/css/main.98c9c6b7.chunk.css.map",
+    "static/js/2.bd2fa1a7.chunk.js.LICENSE.txt": "./static/js/2.bd2fa1a7.chunk.js.LICENSE.txt",
+    "static/media/weather-logo.19461b5b.svg": "./static/media/weather-logo.19461b5b.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.66fc2359.js",
+    "static/js/runtime-main.caf2e88a.js",
     "static/js/2.bd2fa1a7.chunk.js",
     "static/css/main.98c9c6b7.chunk.css",
-    "static/js/main.510da4d7.chunk.js"
+    "static/js/main.e975273a.chunk.js"
   ]
 }
