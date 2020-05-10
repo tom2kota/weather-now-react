@@ -17,11 +17,9 @@ class App extends Component {
     }
 
     componentDidMount() {
-        // (1)
         this.getSearchWeatherState();
     }
 
-    // (2) & (8) true
     getSearchWeatherState = async (searchRegexTerm = 'кингстон') => {
 
         await openweathermap.get(
@@ -52,10 +50,6 @@ class App extends Component {
             )
     }
 
-    // TypeError: this.setState is not a function
-    // printRegexError [as onRegexError]
-    // printRegexError(searchRegexError) {this.setState({countryError: searchRegexError})}
-    // FIX:
     printRegexError = (searchRegexError) => this.setState({countryError: searchRegexError})
 
 
@@ -73,16 +67,13 @@ class App extends Component {
 
 
                         <div className="ui segment">
-                            {/*// (3) */}
                             <SearchBar onTextSubmit={this.getSearchWeatherState} onRegexError={this.printRegexError}/>
-
                         </div>
 
                         <div>
                             <p id="countryError">{this.state.countryError}</p>
                         </div>
 
-                        {/*// (8) */}
                         <div className="ui segment">
                             <div className="ui center aligned teal segment">
                                 <i id="countryFlag"/>
