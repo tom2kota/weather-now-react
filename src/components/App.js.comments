@@ -1,0 +1,118 @@
+import React, {Component} from 'react';
+import {ReactComponent as WeatherLogo} from '../images/weather-logo.svg'
+import openweathermap from "../api/openweathermap";
+import WeatherBanner from "./WeatherBanner";
+import SearchBar from "./SearchBar";
+
+import './App.css';
+
+class App extends Component {
+    state = {
+        countryCode: 'Country Code',
+        countryName: 'City Name',
+        countryTemperature: 'Temperature',
+        countryWeather: 'Weather',
+        countryError: null,
+        countryError1: null
+    }
+
+    componentDidMount() {
+        // (1)
+        this.getSearchWeatherState();
+    }
+
+    // (2) & (8) true
+    getSearchWeatherState = async (searchRegexTerm = 'кингстон') => {
+
+        await openweathermap.get(
+            '/weather',
+            {
+                params: {
+                    q: searchRegexTerm
+                }
+            }
+        )
+            .then(
+                response => this.setState({
+                    countryError: null,
+                    countryCode: response.data.sys.country,
+                    countryName: response.data.name,
+                    countryTemperature: response.data.main.temp.toFixed(0),
+                    countryWeather: response.data.weather.map(x => x.description).toString().replace(/\w\S*/g, (w) => (w.replace(/^\w/, (c) => c.toUpperCase()))),
+                })
+            )
+            .catch(
+                error => this.setState({
+                    countryError: 'Something went wrong!',
+                    countryCode: 'Country Code',
+                    countryName: 'City Name',
+                    countryTemperature: 'Temperature',
+                    countryWeather: 'Weather'
+                })
+            )
+    }
+
+    // TypeError: this.setState is not a function
+    // printRegexError [as onRegexError]
+    // printRegexError(searchRegexError) {this.setState({countryError: searchRegexError})}
+    // FIX:
+    printRegexError = (searchRegexError) => this.setState({countryError: searchRegexError})
+
+
+    render() {
+        return (
+            <div className="ui middle aligned center aligned grid">
+                <div className="column">
+                    <div className="ui raised very padded text segment">
+
+
+                        <h1 className="ui teal image header">
+                            <WeatherLogo className="image"/>
+                            <span className="content">Weather NOW!</span>
+                        </h1>
+
+
+                        <div className="ui segment">
+                            {/*// (3) */}
+                            <SearchBar onTextSubmit={this.getSearchWeatherState} onRegexError={this.printRegexError}/>
+
+                        </div>
+
+                        <div>
+                            <p id="countryError">{this.state.countryError}</p>
+                        </div>
+
+                        {/*// (8) */}
+                        <div className="ui segment">
+                            <div className="ui center aligned teal segment">
+                                <i id="countryFlag"/>
+                                <span id="countryCode">
+                                    <i className="flag outline icon"/>{this.state.countryCode} &nbsp;</span>
+                                <i className={`flag ${this.state.countryCode.toLocaleLowerCase()}`}/>
+                            </div>
+                            <div id="countryName" className="ui center aligned teal segment">
+                                <i className="building outline icon"/>
+                                <span>{this.state.countryName}</span>
+                            </div>
+                            <div id="countryTemperature" className="ui center aligned teal segment">
+                                <i className="thermometer half icon"/>
+                                <span>{this.state.countryTemperature}</span>
+                            </div>
+                            <div id="countryWeather" className="ui center aligned teal segment">
+                                <i className="umbrella icon"/>
+                                <span>{this.state.countryWeather}</span>
+                            </div>
+                        </div>
+
+                        <WeatherBanner/>
+
+                    </div>
+                </div>
+            </div>
+        )
+    }
+
+
+}
+
+export default App
